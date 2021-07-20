@@ -25,11 +25,11 @@ body {
 }
 
 .btn {
-  background-color : silver;
+  background-color: silver;
 }
 
-textarea {
-  width:90%;
-  max-width:90%;
-  max-height:30%;
+.highlight {
+  margin-bottom: 1rem;
+  background-color: #f7f7f9;
+  padding: 5px;
 }

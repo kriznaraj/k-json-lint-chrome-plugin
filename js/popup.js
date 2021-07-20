@@ -9,7 +9,7 @@ $(".btn-primary").on("click", () => {
   chrome.storage.local.set({
     jsonString: json
   }, function () {
-    console.log('Saved - jsonString in local storage')
+    console.log('Saved - jsonString in local storage', json);
   });
   let parsedJSON = '{}';
   try {
@@ -21,9 +21,23 @@ $(".btn-primary").on("click", () => {
   chrome.storage.local.set({
     jsonOutput: parsedJSON
   }, function () {
-    console.log('Saved - jsonOutput in local storage')
+    console.log('Saved - jsonOutput in local storage', parsedJSON);
   });
   $('#json-lint-outpout').html(prettyPrintJson.toHtml(parsedJSON, options));
+});
+
+$("#pd-quote-keys").on('change', (e) => {
+  options.quoteKeys = e.target.checked;
+  chrome.storage.local.set({
+    options
+  }, function () {
+    console.log('Saved - jsonString in local storage', options);
+  });
+  chrome.storage.local.get("jsonOutput", function (res) {
+    if (res.jsonOutput) {
+      $('#json-lint-outpout').html(prettyPrintJson.toHtml(res.jsonOutput, options));
+    }
+  });
 });
 
 function init() {
@@ -34,14 +48,20 @@ function init() {
     }
   });
 
+  chrome.storage.local.get("options", function (res) {
+    if (res.options) {
+      console.log(res.options);
+      options.quoteKeys = res.options.quoteKeys;
+      $('#pd-quote-keys').prop('checked', res.options.quoteKeys);
+    }
+  });
+
   chrome.storage.local.get("jsonOutput", function (res) {
     if (res.jsonOutput) {
       $('#json-lint-outpout').html(prettyPrintJson.toHtml(res.jsonOutput, options));
     }
   });
 }
-
-console.log(document.addEventListener);
 
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log(event);
