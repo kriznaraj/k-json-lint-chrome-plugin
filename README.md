@@ -1,0 +1,1 @@
+# json-lint-chrome-plugin
