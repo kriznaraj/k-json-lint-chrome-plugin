@@ -1,0 +1,25 @@
+{
+    "name": "JSON Lint",
+    "description": "JSON Lint Chrome Plugin",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "storage",
+        "scripting"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "/images/pd16.png",
+            "32": "/images/pd32.png",
+            "48": "/images/pd48.png",
+            "128": "/images/pd128.png"
+        }
+    },
+    "icons": {
+        "16": "/images/pd16.png",
+        "32": "/images/pd32.png",
+        "48": "/images/pd48.png",
+        "128": "/images/pd128.png"
+    }
+}

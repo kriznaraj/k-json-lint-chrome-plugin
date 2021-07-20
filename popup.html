@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>PowerDesk!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/pretty-print-json.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/pretty-print-json.min.js"></script>
+</head>
+
+<body>
+  <div class="rec-container">
+    <fieldset>
+      <legend>JSON Lint</legend>
+      <div class="mb-3">
+        <textarea class="form-control" id="pd-json-area" placeholder="Place your JSON here.."></textarea>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary" type="button">JSON Lint</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div>
+        <i data-icon="copy" class="font-icon fas fa-copy"></i>
+        <legend>JSON - Pretty Print</legend>
+        <pre><output id="json-lint-outpout" class="highlight">{}</output></pre>
+        <nav>
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="pd-quote-keys">
+            <label class="form-check-label" for="pd-quote-keys">Quote Keys</label>
+          </div>
+        </nav>
+     </div>
+    </fieldset>
+  </div>
+  <script src="js/popup.js"></script>
+</body>
+
+</html>
